@@ -1,0 +1,182 @@
+
+<br/>
+<div style="display: none">
+<p>
+  Bug Details:
+
+  <br/>
+      <strong>Bug Ref.</strong>
+      <span>{{bug.bugReference}}</span>
+      <br/>
+      <strong>Date</strong>
+      <span>{{bug.dateOpened}}</span>
+      <br/>
+      <strong>Owner</strong>
+      <span>{{bug.owner}}</span>
+      <br/>
+      <strong>Developer</strong>
+      <span>{{bug.developer}}</span>
+      <br/>
+      <strong>Req. Ref.</strong>
+      <span>{{bug.requirementsReference}}</span>
+      <br/>
+      <strong>Priority</strong>
+      <span>{{bug.priority}}</span>
+      <br/>
+      <strong>Severity</strong>
+      <span>{{bug.severity}}</span>
+      <br/>
+      <strong>Type</strong>
+      <span>{{bug.type}}</span>
+      <br/>
+      <strong>Current Action</strong>
+      <span>{{bug.currentAction}}</span>
+      <br/>
+      <strong>Suggested Action</strong>
+      <span>{{bug.suggestedAction}}</span>
+      <br/>
+      <strong>Comments</strong>
+      <span>{{bug.comments}}</span>
+      <br/>
+      <strong>Status</strong>
+      <span>{{bug.status}}</span>
+      <br/>
+      <button class="btn btn-dark" (click)="deleteBug(bug)">Delete</button>
+      <button class="btn btn-dark" (click)="removeDetailForBug($event)">Clear</button>
+</p>
+</div>
+<h2>{{pageTitle}}</h2>
+<div style="height:500px;">
+    <form #bugForm="ngForm" style="margin:20px;">
+      <div style="float: left; width: 20%">
+        <div class="form-group">
+          <label for="bugId">ID</label>
+          <input type="text" class="form-control" id="bugId" required disabled
+                 [(ngModel)]="bug.id" name="Bug ID"
+                 #bugId="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="bugReference">Bug Reference</label>
+          <input type="text" class="form-control" id="bugReference" required
+                 [(ngModel)]="bug.bugReference" name="Bug Reference"
+                 #bugReference="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="dateOpened">Date Opened</label>
+          <input type="text" class="form-control" id="dateOpened"
+                 required
+                 [(ngModel)]="bug.dateOpened" name="Date Opened"
+                 #dateOpened="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="owner">Owner</label>
+          <input type="text" class="form-control" id="owner"
+                 required
+                 [(ngModel)]="bug.owner" name="Owner"
+                 #owner="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select type="text" class="form-control" id="type"
+                  required
+                  [(ngModel)]="bug.type" name="Type"
+                  #type="ngModel">
+            <option value='' disabled selected>Please Choose a Type</option>
+            <!--<option *ngFor="let typ of typeList" [value]="typ">{{typ}}</option>-->
+            <option>Defect</option>
+            <option>Enhancement</option>
+            <option>Question</option>
+            <option>Suggestion</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <select type="text" class="form-control" id="priority"
+                  required
+                  [(ngModel)]="bug.priority" name="Priority"
+                  #Priority="ngModel">
+            <option value='' disabled selected>Please Choose a Priority</option>
+            <!--<option *ngFor="let pri of priorities" [value]="pri">{{pri}}</option>-->
+            <option>L</option>
+            <option>M</option>
+            <option>H</option>
+            <option>VH</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="severity">Severity</label>
+          <select type="text" class="form-control" id="severity"
+                  required
+                  [(ngModel)]="bug.severity" name="Severity"
+                  #severity="ngModel">
+            <option value='' disabled selected>Please Choose a Severity</option>
+            <!--<option *ngFor="let sev of severities" [value]="sev">{{sev}}</option>-->
+            <option>S1</option>
+            <option>S2</option>
+            <option>S3</option>
+            <option>S4</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="requirementsRef">Requirements Ref.</label>
+          <input type="text" class="form-control" id="requirementsRef"
+                 required
+                 [(ngModel)]="bug.requirementsReference" name="Requirements Ref."
+                 #requirementsRef="ngModel">
+        </div>
+      </div>
+      <div style="float: right; width: 77.5%;" class="form-group">
+        <label for="bugStatus">Status</label>
+        <select type="text" class="form-control" id="bugStatus" required
+               [(ngModel)]="bug.status" name="Status"
+               #bugStatus="ngModel">
+          <option>Open</option>
+          <option>Closed</option>
+          <option>Deferred</option>
+          <option>Re-Opened</option>
+        </select>
+      </div>
+      <div style="float: right; width: 77.5%;">
+        <div class="form-group">
+          <label for="summary">Summary</label>
+          <input type="text" class="form-control" id="summary"
+                 required
+                 [(ngModel)]="bug.summary" name="Summary"
+                 #Summary="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="action">Action</label>
+          <input type="text" class="form-control" id="action"
+                 required
+                 [(ngModel)]="bug.currentAction" name="Action"
+                 #action="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="action">Suggested Action</label>
+          <input type="text" class="form-control" id="suggestedAction"
+                 [(ngModel)]="bug.suggestedAction" name="Suggested Action"
+                 #suggestedAction="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <input type="text" class="form-control" id="comments"
+                 [(ngModel)]="bug.comments" name="Comments"
+                 #owner="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="bugDeveloper">Developer</label>
+          <input type="text" class="form-control" id="bugDeveloper" required
+                 [(ngModel)]="bug.developer" name="Developer"
+                 #bugDeveloper="ngModel">
+        </div>
+      </div>
+    </form>
+</div>
+<div style="margin-top: 170px; float:right;">
+  <button class="btn btn-dark" type="submit" (click)="updateBug(bug)">Update</button>
+  <button class="btn btn-dark" (click)="deleteBug(bug)">Delete</button>
+  <button class="btn btn-dark" (click)="onBack()">Back</button>
+  <!--<button class="btn btn-dark" (click)="removeDetailForBug($event)">Clear</button>-->
+</div>
+

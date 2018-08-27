@@ -1,0 +1,17 @@
+<div id="userViewer" style="margin-top:50px">
+  <div class="row">
+    <div class="col-6">
+      <h1 style="float:left;">Users Screen</h1>
+    </div>
+    <div class="col-6">
+      <input style="float:right; margin:15px;" type="text" placeholder="Search..." (keyup)="filterUsers()" [(ngModel)]="filterText">
+    </div>
+  </div>
+  <app-user-table style="width:100%;" [users]="filteredUsers"></app-user-table>
+  <hr/>
+  <!--<app-user-table></app-user-table>-->
+  <!--<app-bug-detail-->
+  <!--*ngIf="selectedBug"-->
+  <!--[bug]="selectedBug"-->
+  <!--(bugDeselected)="removeDetailForBug($event)" (bugUpdate)="updateBug($event)" (bugDeleted)="deleteBug($event)"></app-bug-detail>-->
+</div>

@@ -1,0 +1,111 @@
+
+<h3>New Bug</h3>
+<form (ngSubmit)="onSubmit()" #bugForm="ngForm" style="margin:20px;">
+  <div style="float: left; width: 20%">
+    <div class="form-group">
+      <label for="bugReference">Bug Reference</label>
+      <input type="text" class="form-control" id="bugReference" required
+             [(ngModel)]="newBug.bugReference" name="Bug Reference"
+             #bugReference="ngModel">
+      <small class="text-danger" [class.d-none]="bugReference.valid || bugReference.untouched">Bug Reference is required</small>
+    </div>
+    <div class="form-group">
+      <label for="bugOwner">Owner</label>
+      <input type="text" class="form-control" id="bugOwner"
+             required
+             [(ngModel)]="newBug.owner" name="Owner"
+             #bugOwner="ngModel">
+      <small class="text-danger" [class.d-none]="bugOwner.valid || bugOwner.untouched">Owner is required</small>
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select type="text" class="form-control" id="type"
+             required
+             [(ngModel)]="newBug.type" name="Type"
+             #type="ngModel">
+        <option value='' disabled selected>Please Choose a Type</option>
+        <!--<option *ngFor="let typ of typeList" [value]="typ">{{typ}}</option>-->
+        <option>Defect</option>
+        <option>Enhancement</option>
+        <option>Question</option>
+        <option>Suggestion</option>
+      </select>
+      <small class="text-danger" [class.d-none]="type.valid || type.untouched">Type is required</small>
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select type="text" class="form-control" id="priority"
+             required
+             [(ngModel)]="newBug.priority" name="Priority"
+             #Priority="ngModel">
+        <option value='' disabled selected>Please Choose a Priority</option>
+        <!--<option *ngFor="let pri of priorities" [value]="pri">{{pri}}</option>-->
+        <option>L</option>
+        <option>M</option>
+        <option>H</option>
+        <option>VH</option>
+      </select>
+      <small class="text-danger" [class.d-none]="Priority.valid || Priority.untouched">Priority is required</small>
+    </div>
+    <div class="form-group">
+      <label for="severity">Severity</label>
+      <select type="text" class="form-control" id="severity"
+             required
+             [(ngModel)]="newBug.severity" name="Severity"
+             #severity="ngModel">
+        <option value='' disabled selected>Please Choose a Severity</option>
+        <!--<option *ngFor="let sev of severities" [value]="sev">{{sev}}</option>-->
+        <option>S1</option>
+        <option>S2</option>
+        <option>S3</option>
+        <option>S4</option>
+      </select>
+      <small class="text-danger" [class.d-none]="severity.valid || severity.untouched">Severity is required</small>
+    </div>
+    <div class="form-group">
+      <label for="requirementsRef">Requirements Ref.</label>
+      <input type="text" class="form-control" id="requirementsRef"
+             required
+             [(ngModel)]="newBug.requirementsReference" name="Requirements Ref."
+             #requirementsRef="ngModel">
+      <small class="text-danger" [class.d-none]="requirementsRef.valid || requirementsRef.untouched">A requirements reference is required</small>
+    </div>
+  </div>
+  <div style="float: right; width: 77.5%;">
+    <div class="form-group">
+      <label for="summary">Summary</label>
+      <input type="text" class="form-control" id="summary"
+             required
+             [(ngModel)]="newBug.summary" name="Summary"
+             #Summary="ngModel">
+      <small class="text-danger" [class.d-none]="Summary.valid || Summary.untouched">Summary is required</small>
+    </div>
+    <div class="form-group">
+      <label for="action">Action</label>
+      <input type="text" class="form-control" id="action"
+             required
+             [(ngModel)]="newBug.currentAction" name="Action"
+             #action="ngModel">
+      <small class="text-danger" [class.d-none]="action.valid || action.untouched">Action is required</small>
+    </div>
+    <div class="form-group">
+      <label for="action">Suggested Action</label>
+      <input type="text" class="form-control" id="suggestedAction"
+             [(ngModel)]="newBug.suggestedAction" name="Suggested Action"
+             #suggestedAction="ngModel">
+      <small class="text-danger" [class.d-none]="suggestedAction.valid || suggestedAction.untouched">Suggested Action is required</small>
+    </div>
+    <div class="form-group">
+      <label for="comments">Comments</label>
+      <input type="text" class="form-control" id="comments"
+             [(ngModel)]="newBug.comments" name="Comments"
+             #owner="ngModel">
+    </div>
+    <button [disabled]="bugForm.form.invalid" class="btn btn-dark" type="submit">Save</button>
+    <button class="btn btn-dark" (click)="hideCreateForm($event)">Cancel</button>
+  </div>
+
+</form>
+
+

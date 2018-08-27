@@ -1,0 +1,19 @@
+
+<div id="loginForm">
+  <h3>Log In</h3>
+  <form #loginForm="ngForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required
+              name="Email">
+      <!--<small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>-->
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="password" required
+             name="Password">
+      <!--<small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>-->
+    </div>
+    <button class="btn">Login</button>
+  </form>
+</div>

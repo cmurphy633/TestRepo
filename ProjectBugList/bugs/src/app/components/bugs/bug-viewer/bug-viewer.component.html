@@ -1,0 +1,33 @@
+<div id="bugViewer" style="margin-top:50px">
+<div class="row">
+  <div class="col-6">
+    <h1 style="float:left;">Bugs Screen</h1>
+  </div>
+  <div class="col-6">
+    <input style="float:right; margin:15px;" type="text" placeholder="Search..." (keyup)="filterBugs()" [(ngModel)]="filterText">
+  </div>
+</div>
+
+
+
+
+
+  <!--<div>-->
+    <!--<h1 style="float:left;">RANDOX - Bug Tracker</h1>-->
+    <!--<input style="float:right; margin:15px;" type="text" (keyup)="filterBugs()" [(ngModel)]="filterText">-->
+  <!--</div>-->
+
+  <!--<app-bug-form  *ngIf="createNew===true" (bugCreated)="addNewBug($event)" (closeCreateForm)="hideCreateForm($event)"></app-bug-form>-->
+
+  <!--<div *ngIf="createNew===false">-->
+    <!--<button class="btn btn-dark" (click)="showCreateForm()">Add new bug</button>-->
+  <!--</div>-->
+
+  <app-bug-table style="width:100%;" [bugs]="filteredBugs" (bugSelected)="showDetailForBug($event)"></app-bug-table>
+  <hr/>
+  <!--<app-user-table></app-user-table>-->
+  <!--<app-bug-detail-->
+    <!--*ngIf="selectedBug"-->
+    <!--[bug]="selectedBug"-->
+    <!--(bugDeselected)="removeDetailForBug($event)" (bugUpdate)="updateBug($event)" (bugDeleted)="deleteBug($event)"></app-bug-detail>-->
+</div>

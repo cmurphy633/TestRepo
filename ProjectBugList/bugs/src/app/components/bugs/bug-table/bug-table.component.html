@@ -1,0 +1,32 @@
+
+<table class="bugsTable" style="width:100%;">
+  <thead>
+  <tr>
+    <th>Bug Ref.</th>
+    <th>Date</th>
+    <th>Owner</th>
+    <th>Developer</th>
+    <th>Summary</th>
+    <th>Requirements Ref</th>
+    <th>Type</th>
+    <th>Priority</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let bug of bugs">
+    <td><a [routerLink]="['/bugs' , bug.id]">{{bug.bugReference}}</a></td>
+    <td>{{bug.dateOpened}}</td>
+    <td>{{bug.owner}}</td>
+    <td>{{bug.developer}}</td>
+    <td>{{bug.summary}}</td>
+    <td>{{bug.requirementsReference}}</td>
+    <td>{{bug.type}}</td>
+    <td>{{bug.priority}}</td>
+    <td>{{bug.status}}</td>
+    <!--<td>-->
+      <!--<button class="btn btn-dark" (click)="showDetailForBug(bug)">Select</button>-->
+    <!--</td>-->
+  </tr>
+  </tbody>
+</table>
